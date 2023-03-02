@@ -1,0 +1,40 @@
+#palito{
+    height: 100px;
+    width: 30px;
+}
+
+#base{
+    height: 300px;
+    width: 200px;
+    border-radius: 10%;
+    display: grid;
+    align-items: center;
+}
+
+/* .trafficLight{
+
+} */
+
+.lightRed{
+    background-color: red;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.lightYellow{
+    background-color: yellow;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.lightGreen{
+    background-color: green;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    border-radius: 50%;
+}
