@@ -8,8 +8,8 @@ import Buttons from "./Buttons.jsx";
 //create your first component
 const Home = () => {
 	const [apagado, setApagado] = useState(true);
-	const [cadena, setCadena] = useState(true);
-	const [extra, setExtra] = useState(true);
+	const [cadena, setCadena] = useState(false);
+	const [extra, setExtra] = useState(false);
 
 
 	const handleSwicthOFF = () => {
@@ -25,7 +25,7 @@ const Home = () => {
   	}
 
 	return (
-		<div className="text-center">
+		<div className="text-center" id="cuerpo">
 			<Semaforo apagar={apagado} contador={cadena} extra={extra}/>
 			<Buttons handleColorChange = {handleColorChange} handleSwicthOFF={handleSwicthOFF} handleAddExtra={handleAddExtra}/>
 		</div>

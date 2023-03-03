@@ -10,3 +10,16 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+body {
+    background-image: url("https://media.istockphoto.com/id/1265005920/es/foto/representaci%C3%B3n-en-3d-fondo-c%C3%B3smico-abstracto-rayos-de-ne%C3%B3n-ultra-violeta-l%C3%ADneas-brillantes-red.jpg?s=170667a&w=0&k=20&c=8BGquyP6bdHEPv6lDR5ZEed85oCtPtOsExIcsQKJvk0=");
+    height: 800px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    /* background-color: #cccccc; */
+}
+
+#cuerpo {
+    height: 800px;
+}
