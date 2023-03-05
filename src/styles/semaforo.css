@@ -11,48 +11,40 @@
     align-items: center;
 }
 
-.lightRed{
+.trafficLight{
+    width: 70px;
+    height: 70px;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.red{
     background-color: red;
-    width: 70px;
-    height: 70px;
-    margin: auto;
-    border-radius: 50%;
 }
 
-.lightYellow{
+.yellow{
     background-color: yellow;
-    width: 70px;
-    height: 70px;
-    margin: auto;
-    border-radius: 50%;
 }
 
-.lightGreen{
+.green{
     background-color: green;
-    width: 70px;
-    height: 70px;
-    margin: auto;
-    border-radius: 50%;
 }
 
-.lightPurple{
+.purple{
     background-color: purple;
-    width: 70px;
-    height: 70px;
-    margin: auto;
-    border-radius: 50%;
 }
 
 .glow{
-    /* box-shadow: 0px 0px 9px 4px #747DE8;*/
     box-shadow:0 0 25px 8px #19e1f3, inset 0 0 15px #19e1f3;
-    /* animation: 1.5s linear infinite alternate; */
+    animation: blinker 0.5s linear infinite alternate;
 }
+
+@keyframes blinker {
+    50% {
+      opacity: 20%;
+    }
+  }
 
 #botones{
     margin-top: 300px;
 }
-
-/* .trafficLight{
-
-} */

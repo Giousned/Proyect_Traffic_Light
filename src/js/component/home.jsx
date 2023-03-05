@@ -3,13 +3,13 @@ import React, { useState } from "react";
 import Semaforo from "./Semaforo.jsx";
 import Buttons from "./Buttons.jsx";
 
-
+import { PURPLE, lightColors } from "../component/config.jsx"
 
 //create your first component
 const Home = () => {
 	const [apagado, setApagado] = useState(true);
-	const [cadena, setCadena] = useState(false);
-	const [extra, setExtra] = useState(false);
+	const [contador, setContador] = useState(false);
+	const [extra, setExtra] = useState(lightColors);
 
 
 	const handleSwicthOFF = () => {
@@ -17,16 +17,17 @@ const Home = () => {
 	}
 
 	const handleColorChange = () => {
-		setCadena(!cadena);
+		setContador(!contador);
   	}
 
-	  const handleAddExtra = () => {
-		setExtra(!extra);
+	const handleAddExtra = () => {
+		if(extra.includes(PURPLE)) setExtra([...lightColors])
+		else setExtra([...lightColors,PURPLE]);
   	}
 
 	return (
 		<div className="text-center" id="cuerpo">
-			<Semaforo apagar={apagado} contador={cadena} extra={extra}/>
+			<Semaforo apagar={apagado} contador={contador} extra={extra}/>
 			<Buttons handleColorChange = {handleColorChange} handleSwicthOFF={handleSwicthOFF} handleAddExtra={handleAddExtra}/>
 		</div>
 	);
