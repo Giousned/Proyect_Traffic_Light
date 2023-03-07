@@ -5,6 +5,7 @@ import Buttons from "./Buttons.jsx";
 
 import { RED, YELLOW, GREEN, PURPLE, lightColors } from "../component/config.jsx"
 
+let contador = 0;
 
 //create your first component
 const Home = () => {
@@ -16,13 +17,22 @@ const Home = () => {
 	let timer = 0;
 
 	function cambiarColor () {
-		setColor((prev) => {
-			const indicePrev = extra.indexOf(prev);
-			if (extra.length === (indicePrev + 1) || indicePrev === -1) {
-				return extra[0];
-			}
-			return extra[indicePrev + 1]
-		})
+		contador += 1;
+		if((extra.length === 3 && contador < 9) || (extra.length === 4 && contador < 12)) {
+			setColor((prev) => {
+				const indicePrev = extra.indexOf(prev);
+				if (extra.length === (indicePrev + 1) || indicePrev === -1) {
+					return extra[0];
+				}
+				return extra[indicePrev + 1]
+			})
+		}
+		else {
+			setChangeColor(false);
+			setColor("");
+			clearTimeout(timer);
+			contador = 0;
+		}
 	}
 
 	if (changeColor) timer = setTimeout(cambiarColor,1500);
