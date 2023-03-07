@@ -3,21 +3,40 @@ import React, { useState } from "react";
 import Semaforo from "./Semaforo.jsx";
 import Buttons from "./Buttons.jsx";
 
-import { PURPLE, lightColors } from "../component/config.jsx"
+import { RED, YELLOW, GREEN, PURPLE, lightColors } from "../component/config.jsx"
 
 //create your first component
 const Home = () => {
-	const [apagado, setApagado] = useState(true);
-	const [contador, setContador] = useState(false);
 	const [extra, setExtra] = useState(lightColors);
+
+	const [changeColor, setChangeColor] = useState(false);
+	const [color, setColor] = useState("");
+
+	if(changeColor) {
+		setTimeout(() => {
+			if(!changeColor) return;
+			setColor(prev => {
+				if(!changeColor) return "";
+				const indicePrev = extra.indexOf(prev);
+				if(extra.length === (indicePrev + 1) || indicePrev === -1) {
+					return extra[0];
+				}
+				return extra[indicePrev+1]
+			})
+		},1500)
+	}
+
+	console.log(changeColor);
+	console.log(color);
 
 
 	const handleSwicthOFF = () => {
-		setApagado(!apagado);
+		setChangeColor(false);
+		setColor("");
 	}
 
 	const handleColorChange = () => {
-		setContador(!contador);
+		setChangeColor(!changeColor);
   	}
 
 	const handleAddExtra = () => {
@@ -27,8 +46,8 @@ const Home = () => {
 
 	return (
 		<div className="text-center" id="cuerpo">
-			<Semaforo apagar={apagado} contador={contador} extra={extra}/>
-			<Buttons handleColorChange = {handleColorChange} handleSwicthOFF={handleSwicthOFF} handleAddExtra={handleAddExtra}/>
+			<Semaforo extra={extra} color={color} setColor={setColor} />
+			<Buttons handleColorChange={handleColorChange} handleSwicthOFF={handleSwicthOFF} handleAddExtra={handleAddExtra}/>
 		</div>
 	);
 };
