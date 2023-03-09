@@ -6,6 +6,7 @@ import Buttons from "./Buttons.jsx";
 import { RED, YELLOW, GREEN, PURPLE, lightColors } from "../component/config.jsx"
 
 let contador = 0;
+let valorCiclos = 0;
 
 //create your first component
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
 
 	function cambiarColor () {
 		contador += 1;
-		if((extra.length === 3 && contador < 9) || (extra.length === 4 && contador < 12)) {
+		if(contador <= extra.length*valorCiclos) {
 			setColor((prev) => {
 				const indicePrev = extra.indexOf(prev);
 				if (extra.length === (indicePrev + 1) || indicePrev === -1) {
@@ -37,9 +38,6 @@ const Home = () => {
 
 	if (changeColor) timer = setTimeout(cambiarColor,1500);
 
-	// console.log(changeColor);
-	// console.log(color);
-
 	const handleSwicthOFF = () => {
 		setChangeColor(false);
 		setColor("");
@@ -47,7 +45,7 @@ const Home = () => {
 	}
 
 	const handleColorChange = () => {
-		setColor(RED);
+		valorCiclos = prompt("Introduce cuantos ciclos quieres:")
 		setChangeColor(!changeColor);
   	}
 
@@ -66,6 +64,7 @@ const Home = () => {
 
 export default Home;
 
+// NO CONSIGO QUE EL SETINTERVAL ME FUNCIONE BIEN SIN VOLVERSE LOCO
 // n=0;
 // 	x = setInterval(function(){
 // 		console.log(n);
@@ -73,6 +72,8 @@ export default Home;
 // 		n++;
 // 	},1000);
 
+// ASI NO SE DEBE HACER, PORQUE HAY 2 CAMBIOS DE ESTADOS ANIDADOS Y LUEGO NO SE PUEDE DETENER
+// Y SE VUELVE LOCO, FATAL USO DEL USEEFFECT
 // useEffect(() => {
 //   if (props.extra === true){
 //     for(let i=0; i<13; i++){
