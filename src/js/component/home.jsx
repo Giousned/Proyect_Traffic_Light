@@ -6,7 +6,7 @@ import Buttons from "./Buttons.jsx";
 import { RED, YELLOW, GREEN, PURPLE, lightColors } from "../component/config.jsx"
 
 let contador = 0;
-let valorCiclos = 0;
+let valorCiclos = 2;
 
 //create your first component
 const Home = () => {
@@ -45,7 +45,11 @@ const Home = () => {
 	}
 
 	const handleColorChange = () => {
-		valorCiclos = prompt("Introduce cuantos ciclos quieres:")
+		// Despues de la "," se pone un valor por defecto
+		// Prompt devuelve un valor como STRING, por eso hay que convertir a numero, aunque aquí luego se usa
+		// para multiplicar y no haría falta porque JS ya lo hace antes por nosotros, pero si quisieramos
+		// sumar es obligatorio si no queremos que concatene
+		valorCiclos = Number(prompt("Introduce cuantos ciclos quieres:", "2")); 
 		setChangeColor(!changeColor);
   	}
 
